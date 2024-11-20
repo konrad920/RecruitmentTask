@@ -9,7 +9,9 @@ def readFile(file_path):
 def convertToHTML(text):
      response = openai.completions.create(
           model = "gpt-3.5-turbo-instruct",
-          prompt = f"Przekształć ten tekst na HTML, ale bez znaczników <html>, <head>, <body>:\n\n{text}",
+          prompt = f"Przekształć ten tekst na HTML, ale bez znaczników <html>, <head>, <body>?
+          Czy możesz zaproponować miejsca na wstawienie grafiki, oznacz je tagiem <img> i nadaj atrybut src=\"image_placeholder.jpg,
+          pod każdym zdjęciem wstaw opis z odpowiednim tagiem dla HTML\":\n\n{text}",
           max_tokens = 1500,
           temperature = 0.7
      )
